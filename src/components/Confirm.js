@@ -1,23 +1,32 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router";
+import { useState } from "react";
 import sky from "../images/backLua.jpg";
 import moon from "../images/moon.png";
 export default function Feed() {
   const navigate = useNavigate();
   console.log("feed");
+  const [confirm, setConfirm] = useState("");
   return (
     <Container>
       <div className="convite">
         <Moon src={moon} />
-        <p>
-          Conto com a sua presença para comemorar comigo o meu aniversário de 15
-          anos
-        </p>
-        <Button onClick={() => navigate("/presenca")}>
-          Confirmar Presença
-        </Button>
+        Rua:
+        <p>Alípio de Paula Silveira 378</p>
+        Bairro:
+        <p>Antônio Pimenta</p>
+        Data e horário:
+        <p>12/11/2022 19:00H</p>
+        <input
+          disabled={false}
+          type="text"
+          name="input"
+          placeholder="Digite seu nome"
+          value={confirm}
+          onChange={(e) => setConfirm(e.target.value)}
+        />
         <Button2 onClick={() => navigate("/endereco")}>
-          Endereço e horário
+          Confiramr presença
         </Button2>
       </div>
       <Background src={sky} />
@@ -27,21 +36,53 @@ export default function Feed() {
 
 const Container = styled.div`
   color: white;
+  font-family: "Sansita Swashed", cursive;
+  font-size: 15px;
+  text-align: center;
+  font-weight: 900;
+  width: 260px;
+  text-shadow: 0.07em 0.07em 0.05em #ac1800;
+
+  color: white;
   width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  input {
+    border: 1px solid #ac1800;
+
+    outline: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+
+    margin-top: 20px;
+    padding-left: 15px;
+    width: 250px;
+    height: 60px;
+    background: white;
+    border-radius: 7px;
+    opacity: ${(props) => props.cor};
+    display: flex;
+    font-family: "Lexend Giga", sans-serif;
+    justify-content: center;
+    align-items: center;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 26px;
+    color: #ac1800;
+  }
   p {
     color: white;
-    margin-top: 30px;
-    margin-bottom: 20px;
     font-family: "Sansita Swashed", cursive;
-    font-size: 30px;
+    font-size: 20px;
+    margin-bottom: 15px;
     text-align: center;
     font-weight: 900;
     width: 240px;
-    line-height: 40px;
+    line-height: 30px;
     text-shadow: 0.07em 0.07em 0.05em #ac1800;
   }
   .convite {
@@ -69,9 +110,10 @@ const Moon = styled.img`
   width: 150px;
   height: 150px;
   object-fit: cover;
+  margin-bottom: 20px;
 `;
 
-const Button = styled.div`
+const Button2 = styled.div`
   margin-top: 20px;
   width: 250px;
   height: 60px;
@@ -87,21 +129,4 @@ const Button = styled.div`
   font-size: 15px;
   line-height: 26px;
   color: #ffffff;
-`;
-const Button2 = styled.div`
-  margin-top: 20px;
-  width: 250px;
-  height: 60px;
-  background: white;
-  border-radius: 7px;
-  opacity: ${(props) => props.cor};
-  display: flex;
-  font-family: "Lexend Giga", sans-serif;
-  justify-content: center;
-  align-items: center;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 15px;
-  line-height: 26px;
-  color: #ac1800;
 `;
