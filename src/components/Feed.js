@@ -16,9 +16,7 @@ export default function Feed() {
         <Button onClick={() => navigate("/presenca")}>
           Confirmar Presença
         </Button>
-        <Button2 onClick={() => navigate("/endereco")}>
-          Endereço e horário
-        </Button2>
+        <Button2 onClick={() => navigate("/mapa")}>Mapa endereco</Button2>
       </div>
       <Background src={sky} />
     </Container>

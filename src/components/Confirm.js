@@ -1,10 +1,8 @@
 import styled from "styled-components";
-import { useNavigate } from "react-router";
 import { useState } from "react";
 import sky from "../images/backLua.jpg";
 import moon from "../images/moon.png";
 export default function Feed() {
-  const navigate = useNavigate();
   console.log("feed");
   const [confirm, setConfirm] = useState("");
   return (
@@ -25,7 +23,7 @@ export default function Feed() {
           value={confirm}
           onChange={(e) => setConfirm(e.target.value)}
         />
-        <Button2 onClick={() => navigate("/endereco")}>
+        <Button2 onClick={() => alert("Presença Confirmada")}>
           Confiramr presença
         </Button2>
       </div>
@@ -51,15 +49,11 @@ const Container = styled.div`
   align-items: center;
   input {
     border: 1px solid #ac1800;
-
     outline: none;
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
-    line-height: 23px;
-
     margin-top: 20px;
-    padding-left: 15px;
+    padding-left: 45px;
     width: 250px;
     height: 60px;
     background: white;
