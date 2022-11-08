@@ -23,13 +23,25 @@ export default function Feed() {
           value={confirm}
           onChange={(e) => setConfirm(e.target.value)}
         />
-        <Button2 onClick={() => alert("Presença Confirmada")}>
+        <Button2
+          onClick={() => {
+            enviar();
+          }}
+        >
           Confiramr presença
         </Button2>
       </div>
       <Background src={sky} />
     </Container>
   );
+
+  function enviar() {
+    let mensagem = `Olá, eu ${confirm} vim confirmar minha presença em sua festa, pode contar comigo`;
+
+    const link =
+      "https://wa.me/+553898824-4332?text=" + encodeURIComponent(mensagem);
+    window.open(link);
+  }
 }
 
 const Container = styled.div`
